@@ -5,8 +5,23 @@
 - include_role:
     name: dt-operator
 
+- name: Pause for 1 Minute
+  ansible.builtin.pause:
+    minutes: 1
+
 - include_role:
     name: app-easytravel
 
+- name: Pause for 1 Minute
+  ansible.builtin.pause:
+    minutes: 1
+
 - include_role:
     name: app-easytrade
+
+- name: Pause for 1 Minute
+  ansible.builtin.pause:
+    minutes: 1
+
+- name: Restart EasyTrade
+  ansible.builtin.shell: runuser -l dtu_training -c "kubectl rollout restart deploy -n easytrade"
