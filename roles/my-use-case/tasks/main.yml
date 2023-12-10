@@ -25,3 +25,5 @@
 
 - name: Restart EasyTrade
   ansible.builtin.shell: runuser -l dtu_training -c "kubectl rollout restart deploy -n easytrade"
+  become: true
+  become_user: root
